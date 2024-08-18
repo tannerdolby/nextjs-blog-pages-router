@@ -10,5 +10,5 @@ export default function handler(req, res) {
     });
     */
 
-    res.status(200).json({text: `saved feedback from user ${email} to database\nFeedback: ${feedback}`});
+    res.status(200).json({text: 'Saved user feedback to database'});
 }

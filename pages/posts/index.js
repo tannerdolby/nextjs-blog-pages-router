@@ -6,7 +6,6 @@ import Link from "next/link";
 import { parseISO, format } from 'date-fns';
 
 export async function getServerSideProps({ query }) {
-    console.log('params sx', query);
     const sortedPosts = getSortedPostsData();
     const filteredPostsByTag = sortedPosts.filter((post) => {
         return post.tags.includes(query.tag);
@@ -20,8 +19,6 @@ export async function getServerSideProps({ query }) {
 }
 
 export default function Posts({ sortedPosts, filteredPostsByTag }) {
-    console.log('sorted posts', sortedPosts);
-    console.log('filtered by tag', filteredPostsByTag);
     const posts = filteredPostsByTag.length ? filteredPostsByTag : sortedPosts;
     return (
         <Layout>

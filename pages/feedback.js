@@ -1,19 +1,28 @@
+import {useState} from 'react';
 import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 
 export default function Feedback() {
+    const [userEmail, setUserEmail] = useState('');
+    const [userFeedback, setUserFeedback] = useState('');
+
     async function handleSubmit(event) {
         event.preventDefault();
 
         const formData = new FormData(event.currentTarget);
-        const res = await fetch("/api/save-feedback", {
-            method: "POST",
+        const res = await fetch('/api/save-feedback', {
+            method: 'POST',
             body: formData,
         });
         // Do something with the API route response
         const data = await res.json();
         console.log('data', data);
+
+        // Clear form fields
+        setUserEmail('');
+        setUserFeedback('');
     }
+
     return (
         <Layout>
             <section>
@@ -24,6 +33,8 @@ export default function Feedback() {
                         type="email"
                         id="email"
                         name="email"
+                        value={userEmail}
+                        onChange={(e) => setUserEmail(e.target.value)}
                         placeholder="your.email@gmail.com"
                         className={utilStyles.input}
                         required
@@ -35,6 +46,8 @@ export default function Feedback() {
                         cols={5}
                         id="feedback"
                         name="feedback"
+                        value={userFeedback}
+                        onChange={(e) => setUserFeedback(e.target.value)}
                         placeholder="How can this blog be better?"
                         required
                     />
