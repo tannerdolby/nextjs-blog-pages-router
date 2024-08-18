@@ -7,6 +7,7 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn) with so
 - Dynamic Routes
 - Profile page that fetches user info from the GitHub API
 - API Routes
+- Blog page with pagination
 - Blog posts written in Markdown in the `posts` folder
 - Basic metadata populated for SEO
 
