@@ -1,0 +1,129 @@
+.heading2Xl {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+    margin: 1rem 0;
+}
+
+.headingXl {
+    font-size: 2rem;
+    line-height: 1.3;
+    font-weight: 800;
+    letter-spacing: -0.05rem;
+}
+
+.headingLg {
+    font-size: 1.5rem;
+    line-height: 1.4;
+    margin: 1rem 0;
+}
+
+.headingMd {
+    font-size: 1.2rem;
+    line-height: 1.5;
+}
+
+.textSm {
+    font-size: .75rem;
+    line-height: 1.5;
+}
+
+.borderRoundedMd {
+    border-radius: 5px;
+}
+
+.borderCircle {
+    border-radius: 9999px;
+}
+
+.colorInherit {
+    color: inherit;
+}
+
+.padding1px {
+    padding-top: 1px;
+}
+
+.paddingMd {
+    padding: .5rem;
+}
+
+.margin0 {
+    margin: 0;
+}
+
+.list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.listItem {
+    margin: 0 0 1.25rem;
+}
+
+.lightText {
+    color: #666;
+}
+
+.flex {
+    display: flex;
+    align-items: center;
+}
+
+.flexColumn {
+    display: flex;
+    flex-direction: column;
+}
+
+.spaceBetween {
+    justify-content: space-between;
+}
+
+.spaceEvenly {
+    justify-content: space-evenly;
+}
+
+.marginTopMd {
+    margin-top: .5rem;
+}
+
+.marginLeftMd {
+    margin-left: .5rem;
+}
+
+.marginRightMd {
+    margin-right: .5rem;
+}
+
+.submitBtn {
+    background-color: #1a6bdd;
+    padding: .5rem .75rem;
+    color: #fff;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+    margin-top: .5rem;
+}
+
+.submitBtn:hover {
+    background: #1c72eb;
+    cursor: pointer;
+}
+
+.input {
+    border: 1px solid rgb(201, 200, 200);
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.textArea {
+    min-height: 4rem;
+    border: 1px solid rgb(201, 200, 200);
+    padding: .5rem;
+    border-radius: 5px;
+}
+
+.textAreaResizeY {
+    resize: vertical;
+}
