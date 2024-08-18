@@ -11,8 +11,8 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn) with so
 - Basic metadata populated for SEO
 
 ## Local Setup
-1. Clone this repo: git clone https://github.com/tannerdolby/nextjs-blog-pages-router.git
-2. Navigate to your local copy of the project: cd nextjs-blog-pages-router
-3. Install dependencies: npm install
-4. Build: npm run build
-5. Serve locally: npm run dev
+1. Clone this repo: `git clone https://github.com/tannerdolby/nextjs-blog-pages-router.git`
+2. Navigate to your local copy of the project: `cd nextjs-blog-pages-router`
+3. Install dependencies: `npm install`
+4. Build: `npm run build`
+5. Serve locally: `npm run dev`
