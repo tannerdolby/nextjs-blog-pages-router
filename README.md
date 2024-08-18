@@ -5,7 +5,8 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn) with so
 - Examples of both pre-rendering methods in Next.js: Static Generation and Server-side Rendering
 - Data Fetching via getStaticProps (Static Generation with data at build-time) and getServerSideProps (SSR at request-time)
 - Profile page that fetches user info from the GitHub API
-- Blog page with pagination
+- Basic text search and tag filtering for blog posts
+- Pagination in blog posts
 - Blog posts written in Markdown in the `posts` folder
 - Dynamic Routes
 - API Routes
