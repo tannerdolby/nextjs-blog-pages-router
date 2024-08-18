@@ -61,6 +61,8 @@ export default function Post({ postData, paths }) {
                 <Link href={`/posts/${paths[nextIdx].params.id}`}>Next &rarr;</Link>
             </div>
             <br />
+            <Link href="/posts">Back to posts</Link>
+            <br />
             <hr />
         </Layout>
     )
