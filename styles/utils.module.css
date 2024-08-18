@@ -29,6 +29,10 @@
     line-height: 1.5;
 }
 
+.textXs {
+    font-size: .6rem;
+}
+
 .borderRoundedMd {
     border-radius: 5px;
 }
@@ -77,6 +81,18 @@
     flex-direction: column;
 }
 
+.flexWrap {
+    flex-wrap: wrap;
+}
+
+.columnGapLg {
+    column-gap: 1rem;
+}
+
+.columnGapMd {
+    column-gap: .5rem;
+}
+
 .spaceBetween {
     justify-content: space-between;
 }
@@ -85,8 +101,20 @@
     justify-content: space-evenly;
 }
 
+.marginTopXl {
+    margin-top: 2rem;
+}
+
+.marginTopLg {
+    margin-top: 1rem;
+}
+
 .marginTopMd {
     margin-top: .5rem;
+}
+
+.marginTop0px {
+    margin-top: 0;
 }
 
 .marginLeftMd {
@@ -95,6 +123,10 @@
 
 .marginRightMd {
     margin-right: .5rem;
+}
+
+.marginLeftSm {
+    margin-left: .25rem;
 }
 
 .submitBtn {
