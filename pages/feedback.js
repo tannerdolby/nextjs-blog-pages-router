@@ -4,16 +4,15 @@ import utilStyles from '../styles/utils.module.css';
 export default function Feedback() {
     async function handleSubmit(event) {
         event.preventDefault();
-        console.log(event);
+
         const formData = new FormData(event.currentTarget);
-        console.log(event.currentTarget);
-        console.log('formData', formData);
         const res = await fetch("/api/save-feedback", {
             method: "POST",
             body: formData,
         });
+        // Do something with the API route response
         const data = await res.json();
-        console.log('api route response', data);
+        console.log('data', data);
     }
     return (
         <Layout>
