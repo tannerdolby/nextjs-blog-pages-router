@@ -6,7 +6,6 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn) with so
 - Data Fetching via getStaticProps (Static Generation with data at build-time) and getServerSideProps (SSR at request-time)
 - Profile page that fetches user info from the GitHub API
 - Basic text search and tag filtering for blog posts
-- Pagination in blog posts
 - Blog posts written in Markdown in the `posts` folder
 - Dynamic Routes
 - API Routes
