@@ -5,7 +5,7 @@ import utilStyles from '../../styles/utils.module.css';
 import postStyles from '../../styles/post.module.css';
 import Link from "next/link";
 import { parseISO, format } from 'date-fns';
-import {useState} from 'react';
+import { useState } from 'react';
 
 export async function getServerSideProps({ query }) {
     const sortedPosts = getSortedPostsData();
@@ -32,6 +32,22 @@ export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTa
     const [search, setSearch] = useState('');
     const posts = filteredPostsByTag.length ? filteredPostsByTag : sortedPosts;
 
+    const TagFilterText = () => {
+        const matches = filteredPostsByTag.length;
+        const itemType = matches === 1 ? 'post' : 'posts';
+        console.log('matches', matches);
+
+        if (!matches) {
+            return '';
+        }
+
+        return (
+            <small>
+                <p>{matches} {itemType} tagged with {tagQuery}</p>
+            </small>
+        )
+    }
+
     return (
         <Layout>
             <Head>
@@ -45,8 +61,7 @@ export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTa
                     </small>
                     <input className={utilStyles.input} type="text" name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={'Enter search...'} />
                 </div>
-
-                {filteredPostsByTag.length ? <small><p>{filteredPostsByTag.length} posts tagged with {tagQuery}</p></small> : ''}
+                <TagFilterText />
                 <ul className={`${utilStyles.list} ${utilStyles.marginTopXl}`}>
                     {posts
                         .filter((post) => {
@@ -70,12 +85,12 @@ export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTa
                     }
                 </ul>
                 <h3>Filter Posts by Tag</h3>
-                <ul className={`${utilStyles.list} ${utilStyles.flex} ${utilStyles.flexWrap} ${utilStyles.columnGapMd}`}>
+                <ul className={`${utilStyles.list} ${utilStyles.flex} ${utilStyles.flexWrap}`}>
                     {allTags.map((tag) => {
                         return (
-                        <li className={`${utilStyles.listItem} ${utilStyles.textSm}`}>
-                            <Link className={postStyles.tag} href={`/posts/?tag=${tag}`}>{tag}</Link>
-                        </li>
+                            <li className={`${utilStyles.listItem} ${utilStyles.textSm}`} key={`${tag}-filter`}>
+                                <Link className={postStyles.tag} href={`/posts/?tag=${tag}`}>{tag}</Link>
+                            </li>
                         );
                     })}
                 </ul>

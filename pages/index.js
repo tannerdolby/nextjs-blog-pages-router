@@ -48,7 +48,7 @@ export default function Home({sortedPostsData}) {
         <Link href="/posts">See all posts &rarr;</Link>
         <h2>Feedback</h2>
         <p>See a problem or want to help make this blog better?</p>
-        <Link href="/feedback">Submit feedback</Link>
+        <Link className={utilStyles.textNormal} href="/feedback">Submit feedback</Link>
       </section>
     </Layout>
   );
