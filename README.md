@@ -1,5 +1,5 @@
 # Next.js Blog Template with Pages Router
-This is a starter template for [Learn Next.js](https://nextjs.org/learn) with some additional features added.
+This is a starter template for [Learn Next.js](https://nextjs.org/learn-pages-router/basics/create-nextjs-app) with some additional features added.
 
 ## Features
 - Examples of both pre-rendering methods in Next.js: Static Generation and Server-side Rendering
