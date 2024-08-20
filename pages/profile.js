@@ -1,6 +1,7 @@
 import Head from 'next/head';
 import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
+import profileStyles from '../styles/profile.module.css';
 
 const GITHUB_API_URL = 'https://api.github.com';
 const GITHUB_USER = 'tannerdolby';
@@ -24,6 +25,7 @@ export async function getServerSideProps() {
 }
 
 export default function Profile({ githubProfile, githubRepos }) {
+    console.log('Github Profile', githubProfile);
     const { company, location, bio, blog, html_url, followers, public_repos } = githubProfile;
     return (
         <Layout profile>
@@ -31,24 +33,29 @@ export default function Profile({ githubProfile, githubRepos }) {
                 <title>Profile</title>
             </Head>
             <section>
-                <p>Software Engineer @ {company}. Based out of {location} and writing about things on <a href={blog}>{blog}</a></p>
-                <p>{bio}</p>
-                <p>GitHub Profile: <a href={html_url}>@tannerdolby</a></p>
-                <p>GitHub Followers: {followers}</p>
-                <p>Public Repositories: {public_repos}</p>
+                <p>Software Engineer @{company || 'tbd'}. Based out of {location}.</p>
+                <div className={profileStyles.githubProfile}>
+                    <p>GitHub Profile: <a href={html_url}>@tannerdolby</a></p>
+                    <p><span>👋</span> {bio}</p>
+                    <p><span>✏️</span> <a className={utilStyles.darkText} href={blog}>{blog}</a></p>
+                    <p><span>🤸</span> {followers} followers</p>
+                    <p><span>📦</span> {public_repos} public repositories</p>
+                </div>
                 <h2>Projects</h2>
                 <ul className={utilStyles.list}>
-                    {githubRepos.map((repo) => {
+                    {githubRepos.sort((a,b) => b.stargazers_count - a.stargazers_count).map((repo) => {
                         return (
                             <li key={repo.id} className={utilStyles.listItem}>
                                 <div className={`${utilStyles.flex} ${utilStyles.spaceBetween}`}>
                                     <a href={repo.html_url} className={utilStyles.margin0}>{repo.name}</a>
-                                    <div>
-                                        <small>
-                                            <span className={utilStyles.marginRightMd}>⭐</span>
+                                    <a href={`${repo.html_url}/stargazers`} className={profileStyles.starLink}>
+                                        <small className={utilStyles.flex}>
+                                            <span className={profileStyles.star}>
+                                                ⭐
+                                            </span>
                                             <span>{repo.stargazers_count}</span>
                                         </small>
-                                    </div>
+                                    </a>
                                 </div>
                                 <small className={utilStyles.lightText}>
                                     <p className={utilStyles.margin0}>{repo.description}</p>
