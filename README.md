@@ -17,3 +17,4 @@ This is a starter template for [Learn Next.js](https://nextjs.org/learn-pages-ro
 3. Install dependencies: `npm install`
 4. Build: `npm run build`
 5. Serve locally: `npm run dev`
+6. Serve production build: `npm run start`
