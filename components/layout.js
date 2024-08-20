@@ -3,6 +3,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import utilStyles from '../styles/utils.module.css';
 import styles from '../styles/layout.module.css';
+import Footer from './footer';
 
 const name = 'Tanner Dolby';
 export const siteTitle = 'Next.js Sample Blog Website';
@@ -24,7 +25,7 @@ export default function Layout({ children, home, profile }) {
                 <meta name="twitter:card" content="summary_large_image" />
             </Head>
             <header className={styles.header}>
-                {home || profile ? (
+                {(home || profile) ? (
                     <>
                         <Image
                             priority
@@ -63,6 +64,7 @@ export default function Layout({ children, home, profile }) {
                     <Link href="/">&larr; Back to home</Link>
                 </div>
             )}
+            <Footer />
         </div>
     );
 }
