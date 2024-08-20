@@ -1,0 +1,19 @@
+.starLink {
+    color: #666;
+}
+
+.starLink:hover {
+    text-decoration: none;
+}
+
+.star {
+    margin-right: .375rem;
+    font-size: .8rem;
+}
+
+.githubProfile {
+    border: 2px solid black;
+    border-radius: 5px;
+    padding: .5rem;
+    box-shadow: 2px 2px 0 1px;
+}

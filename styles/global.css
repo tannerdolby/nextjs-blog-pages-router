@@ -37,3 +37,10 @@ img {
   height: auto;
   display: block;
 }
+
+footer {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

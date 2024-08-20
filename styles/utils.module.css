@@ -24,6 +24,10 @@
     line-height: 1.5;
 }
 
+.textNormal {
+    font-size: 1rem;
+}
+
 .textSm {
     font-size: .75rem;
     line-height: 1.5;
@@ -71,6 +75,14 @@
     color: #666;
 }
 
+.darkText {
+    color: #000;
+}
+
+.noUnderline {
+    text-decoration: none;
+}
+
 .flex {
     display: flex;
     align-items: center;
@@ -90,7 +102,7 @@
 }
 
 .columnGapMd {
-    column-gap: .5rem;
+    column-gap: 0rem;
 }
 
 .spaceBetween {
