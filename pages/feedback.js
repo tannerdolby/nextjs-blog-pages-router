@@ -1,8 +1,13 @@
-import {useState} from 'react';
+import { useState } from 'react';
 import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
+import { sendEmail } from '../utils/email';
+import Head from 'next/head';
+
+const TEAM_EMAIL = 'dolb.tanner@gmail.com';
 
 export default function Feedback() {
+    const [userName, setUserName] = useState('');
     const [userEmail, setUserEmail] = useState('');
     const [userFeedback, setUserFeedback] = useState('');
 
@@ -18,17 +23,35 @@ export default function Feedback() {
         const data = await res.json();
         console.log('data', data);
 
+        // Send an email to yourself or a team inbox with the user feedback
+        sendEmail(TEAM_EMAIL, 'Next.js Pages Router Starter', userFeedback);
+
         // Clear form fields
+        setUserName('');
         setUserEmail('');
         setUserFeedback('');
     }
 
     return (
         <Layout>
+            <Head>
+                <title>Feedback</title>
+            </Head>
             <section>
-                <h2>Send me feedback</h2>
+                <h2>Send feedback</h2>
                 <form onSubmit={handleSubmit} method="post" className={utilStyles.flexColumn}>
-                    <label htmlFor="email">Email</label>
+                    <label htmlFor="name">Name</label>
+                    <input
+                        type="text"
+                        id="name"
+                        name="name"
+                        value={userName}
+                        onChange={(e) => setUserName(e.target.value)}
+                        placeholder="Your name"
+                        className={utilStyles.input}
+                        required
+                    />
+                    <label htmlFor="email" className={utilStyles.marginTopMd}>Email</label>
                     <input
                         type="email"
                         id="email"
