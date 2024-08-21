@@ -45,10 +45,10 @@ export default function Home({sortedPostsData}) {
             );
           })}
         </ul>
-        <Link href="/posts">See all posts &rarr;</Link>
+        <Link className={utilStyles.textNormal} href="/posts">See all posts &rarr;</Link>
         <h2>Feedback</h2>
         <p>See a problem or want to help make this blog better?</p>
-        <Link className={utilStyles.textNormal} href="/feedback">Submit feedback</Link>
+        <Link className={utilStyles.textNormal} href="/feedback">Submit feedback &rarr;</Link>
       </section>
     </Layout>
   );
