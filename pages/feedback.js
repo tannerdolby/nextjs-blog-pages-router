@@ -23,7 +23,8 @@ export default function Feedback() {
         const data = await res.json();
         console.log('data', data);
 
-        // Send an email to yourself or a team inbox with the user feedback
+        // Additionally, you could allow users to send an email to
+        // you or a team inbox with their feedback
         sendEmail(TEAM_EMAIL, 'Next.js Pages Router Starter', userFeedback);
 
         // Clear form fields
