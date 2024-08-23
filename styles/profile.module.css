@@ -15,7 +15,7 @@
 .githubProfileDark {
     border: 2px solid black;
     border-radius: 5px;
-    padding: .5rem;
+    padding: .35rem 1rem;
     box-shadow: 2px 2px 0 1px #000;
 }
 

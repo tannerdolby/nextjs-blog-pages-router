@@ -50,6 +50,14 @@ footer {
   color: #fff;
 }
 
+.dark p {
+  color: rgb(230, 230, 230);
+}
+
+.dark footer p {
+  color: #666;
+}
+
 .dark form input,
 .dark form textarea,
 .dark form button,
