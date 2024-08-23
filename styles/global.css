@@ -44,3 +44,37 @@ footer {
   justify-content: space-between;
   align-items: center;
 }
+
+.dark {
+  background: #000;
+  color: #fff;
+}
+
+.dark form input,
+.dark form textarea,
+.dark form button,
+.dark input {
+  background: #000;
+  border: 1px solid #111;
+}
+
+.dark form button {
+  background: rgb(8, 8, 8);
+}
+
+.dark form button:hover {
+  background: rgb(15, 15, 15);
+}
+
+.theme-switcher-btn {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background: transparent;
+  border: none;
+  font-size: 1.4rem;
+}
+
+.theme-switcher-btn:hover {
+  cursor: pointer;
+}

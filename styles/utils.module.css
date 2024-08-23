@@ -28,6 +28,10 @@
     font-size: 1rem;
 }
 
+.textMd {
+    font-size: .85rem;
+}
+
 .textSm {
     font-size: .75rem;
     line-height: 1.5;
@@ -111,6 +115,11 @@
 
 .spaceEvenly {
     justify-content: space-evenly;
+}
+
+.marginYXl {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
 }
 
 .marginTopXl {
