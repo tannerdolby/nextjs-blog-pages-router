@@ -58,7 +58,7 @@ export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTa
             <section className={utilStyles.headingMd}>
                 <h2>Blog</h2>
                 <div className={utilStyles.flexColumn}>
-                    <small className={utilStyles.lightText}>
+                    <small className={'lightText'}>
                         <label htmlFor="search">Search</label>
                     </small>
                     <input className={utilStyles.input} type="text" name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={'Enter search...'} />
@@ -78,7 +78,7 @@ export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTa
                                         {post.title}
                                     </Link>
                                     <br />
-                                    <small className={`${utilStyles.lightText} ${utilStyles.flex}`}>
+                                    <small className={`lightText ${utilStyles.flex}`}>
                                         <time dateTime={post.date}>{formattedDate}</time>
                                     </small>
                                 </li>

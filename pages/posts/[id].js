@@ -42,7 +42,7 @@ export default function Post({ postData, paths }) {
                 <title>{title}</title>
             </Head>
             <h2 className={utilStyles.headingXl}>{title}</h2>
-            <div className={utilStyles.lightText}>
+            <div className={'lightText'}>
                 <Date dateString={date} />
             </div>
             <ul className={`${utilStyles.flex} ${utilStyles.list} ${utilStyles.marginTopMd}`}>

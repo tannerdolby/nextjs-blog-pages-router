@@ -45,6 +45,10 @@ footer {
   align-items: center;
 }
 
+.lightText {
+  color: #666;
+}
+
 .dark {
   background: #000;
   color: #fff;
@@ -54,8 +58,9 @@ footer {
   color: rgb(230, 230, 230);
 }
 
-.dark footer p {
-  color: #666;
+.dark .lightText,
+.dark .lightText p {
+  color: #999;
 }
 
 .dark form input,

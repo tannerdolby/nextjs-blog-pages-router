@@ -38,7 +38,7 @@ export default function Home({sortedPostsData}) {
                   {title}
                 </Link>
                 <br />
-                <small className={utilStyles.lightText}>
+                <small className={'lightText'}>
                   <Date dateString={date} />
                 </small>
               </li>

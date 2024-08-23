@@ -60,7 +60,7 @@ export default function Profile({ githubProfile, githubRepos }) {
                                         </small>
                                     </a>
                                 </div>
-                                <small className={utilStyles.lightText}>
+                                <small className={'lightText'}>
                                     <p className={utilStyles.margin0}>{repo.description}</p>
                                 </small>
                             </li>
