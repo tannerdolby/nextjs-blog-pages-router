@@ -5,6 +5,8 @@ import { getAllPostIds, getPostData } from "../../utils/posts";
 import Head from "next/head";
 import utilStyles from '../../styles/utils.module.css';
 import postStyles from '../../styles/post.module.css';
+import { useContext } from "react";
+import { ThemeContext } from "../_app";
 
 export async function getStaticPaths() {
     const paths = getAllPostIds();
@@ -27,6 +29,7 @@ export async function getStaticProps({ params }) {
 }
 
 export default function Post({ postData, paths }) {
+    const theme = useContext(ThemeContext);
     const { title, id, date, tags, htmlContent } = postData;
     const currentPathIdx = paths.findIndex((path) => path.params.id === id);
     let prevIdx = (currentPathIdx - 1) % paths.length;
@@ -49,7 +52,7 @@ export default function Post({ postData, paths }) {
                         key={tag}
                         className={`${utilStyles.listItem} ${utilStyles.textSm}`}
                     >
-                        <Link className={postStyles.tag} href={`/posts/?tag=${tag}`}>{tag}</Link>
+                        <Link className={`${theme === 'dark' ? postStyles.tagDark : postStyles.tag}`} href={`/posts/?tag=${tag}`}>{tag}</Link>
                     </li>
                     )
                 })}
@@ -61,9 +64,9 @@ export default function Post({ postData, paths }) {
                 <Link href={`/posts/${paths[nextIdx].params.id}`}>Next &rarr;</Link>
             </div>
             <br />
-            <Link href="/posts">Back to posts</Link>
-            <br />
             <hr />
+            <br />
+            <Link href="/posts">&larr; Back to posts</Link>
         </Layout>
     )
 }

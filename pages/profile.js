@@ -2,6 +2,8 @@ import Head from 'next/head';
 import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import profileStyles from '../styles/profile.module.css';
+import { useContext } from 'react';
+import { ThemeContext } from './_app';
 
 const GITHUB_API_URL = 'https://api.github.com';
 const GITHUB_USER = 'tannerdolby';
@@ -25,8 +27,9 @@ export async function getServerSideProps() {
 }
 
 export default function Profile({ githubProfile, githubRepos }) {
-    console.log('Github Profile', githubProfile);
     const { company, location, bio, blog, html_url, followers, public_repos } = githubProfile;
+    const theme = useContext(ThemeContext);
+
     return (
         <Layout profile>
             <Head>
@@ -34,7 +37,7 @@ export default function Profile({ githubProfile, githubRepos }) {
             </Head>
             <section>
                 <p>Software Engineer @{company || 'tbd'}. Based out of {location}.</p>
-                <div className={profileStyles.githubProfile}>
+                <div className={theme === 'dark' ? profileStyles.githubProfileDark : profileStyles.githubProfile}>
                     <p>GitHub Profile: <a href={html_url}>@tannerdolby</a></p>
                     <p><span>👋</span> {bio}</p>
                     <p><span>✏️</span> <a className={utilStyles.darkText} href={blog}>{blog}</a></p>

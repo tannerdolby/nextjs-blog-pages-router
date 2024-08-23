@@ -5,7 +5,8 @@ import utilStyles from '../../styles/utils.module.css';
 import postStyles from '../../styles/post.module.css';
 import Link from "next/link";
 import { parseISO, format } from 'date-fns';
-import { useState } from 'react';
+import { useState, useCallback, useContext } from 'react';
+import { ThemeContext } from "../_app";
 
 export async function getServerSideProps({ query }) {
     const sortedPosts = getSortedPostsData();
@@ -30,21 +31,22 @@ export async function getServerSideProps({ query }) {
 
 export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTags }) {
     const [search, setSearch] = useState('');
+    const theme = useContext(ThemeContext);
     const posts = filteredPostsByTag.length ? filteredPostsByTag : sortedPosts;
 
     const TagFilterText = () => {
         const matches = filteredPostsByTag.length;
         const itemType = matches === 1 ? 'post' : 'posts';
-        console.log('matches', matches);
 
         if (!matches) {
             return '';
         }
 
         return (
-            <small>
-                <p>{matches} {itemType} tagged with {tagQuery}</p>
-            </small>
+            <div className={`${utilStyles.textNormal} ${utilStyles.flex} ${utilStyles.spaceBetween} ${utilStyles.flexWrap} ${utilStyles.marginTopMd}`}>
+                <p className={utilStyles.margin0}>{matches} {itemType} tagged with {tagQuery}</p>
+                <Link href="/posts" onClick={() => setSearch('')}>Clear filters</Link>
+            </div>
         )
     }
 
@@ -62,7 +64,7 @@ export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTa
                     <input className={utilStyles.input} type="text" name="search" value={search} onChange={(e) => setSearch(e.target.value)} placeholder={'Enter search...'} />
                 </div>
                 <TagFilterText />
-                <ul className={`${utilStyles.list} ${utilStyles.marginTopXl}`}>
+                <ul className={`${utilStyles.list} ${utilStyles.marginYXl}`}>
                     {posts
                         .filter((post) => {
                             return post.title.toLowerCase().includes(search.toLowerCase());
@@ -89,12 +91,11 @@ export default function Posts({ sortedPosts, filteredPostsByTag, tagQuery, allTa
                     {allTags.map((tag) => {
                         return (
                             <li className={`${utilStyles.listItem} ${utilStyles.textSm}`} key={`${tag}-filter`}>
-                                <Link className={postStyles.tag} href={`/posts/?tag=${tag}`}>{tag}</Link>
+                                <Link className={theme === 'dark' ? postStyles.tagDark : postStyles.tag} href={`/posts/?tag=${tag}`}>{tag}</Link>
                             </li>
                         );
                     })}
                 </ul>
-                {filteredPostsByTag.length ? <Link href="/posts" onClick={() => setSearch('')}>Clear filters</Link> : ''}
             </section>
         </Layout>
     )

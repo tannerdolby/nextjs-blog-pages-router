@@ -1,8 +1,9 @@
-import { useReducer } from 'react';
+import { useReducer, useContext } from 'react';
 import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { sendEmail } from '../utils/email';
 import Head from 'next/head';
+import { ThemeContext } from './_app';
 
 const TEAM_EMAIL = 'dolb.tanner@gmail.com';
 
@@ -25,6 +26,7 @@ export default function Feedback() {
         email: '',
         feedback: ''
     });
+    const theme = useContext(ThemeContext);
 
     async function handleSubmit(event) {
         event.preventDefault();
