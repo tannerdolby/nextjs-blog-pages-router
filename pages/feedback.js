@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useReducer } from 'react';
 import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { sendEmail } from '../utils/email';
@@ -6,10 +6,25 @@ import Head from 'next/head';
 
 const TEAM_EMAIL = 'dolb.tanner@gmail.com';
 
+function reducer(state, action) {
+    switch (action.type) {
+        case 'SET_NAME':
+            return {...state, name: action.payload};
+        case 'SET_EMAIL':
+            return {...state, email: action.payload};
+        case 'SET_FEEDBACK':
+            return {...state, feedback: action.payload};
+        default:
+            return state;
+    }
+}
+
 export default function Feedback() {
-    const [userName, setUserName] = useState('');
-    const [userEmail, setUserEmail] = useState('');
-    const [userFeedback, setUserFeedback] = useState('');
+    const [formState, dispatch] = useReducer(reducer, {
+        name: '',
+        email: '',
+        feedback: ''
+    });
 
     async function handleSubmit(event) {
         event.preventDefault();
@@ -25,12 +40,12 @@ export default function Feedback() {
 
         // Additionally, you could allow users to send an email to
         // you or a team inbox with their feedback
-        sendEmail(TEAM_EMAIL, 'Next.js Pages Router Starter', userFeedback);
+        sendEmail(TEAM_EMAIL, 'Next.js Pages Router Starter', formState.feedback);
 
         // Clear form fields
-        setUserName('');
-        setUserEmail('');
-        setUserFeedback('');
+        dispatch({type: 'SET_NAME', payload: ''});
+        dispatch({type: 'SET_EMAIL', payload: ''});
+        dispatch({type: 'SET_FEEDBACK', payload: ''});
     }
 
     return (
@@ -46,8 +61,8 @@ export default function Feedback() {
                         type="text"
                         id="name"
                         name="name"
-                        value={userName}
-                        onChange={(e) => setUserName(e.target.value)}
+                        value={formState.name}
+                        onChange={(e) => dispatch({type: 'SET_NAME', payload: e.target.value})}
                         placeholder="Your name"
                         className={utilStyles.input}
                         required
@@ -57,8 +72,8 @@ export default function Feedback() {
                         type="email"
                         id="email"
                         name="email"
-                        value={userEmail}
-                        onChange={(e) => setUserEmail(e.target.value)}
+                        value={formState.email}
+                        onChange={(e) => dispatch({type: 'SET_EMAIL', payload: e.target.value})}
                         placeholder="your.email@gmail.com"
                         className={utilStyles.input}
                         required
@@ -70,8 +85,8 @@ export default function Feedback() {
                         cols={5}
                         id="feedback"
                         name="feedback"
-                        value={userFeedback}
-                        onChange={(e) => setUserFeedback(e.target.value)}
+                        value={formState.feedback}
+                        onChange={(e) => dispatch({type: 'SET_FEEDBACK', payload: e.target.value})}
                         placeholder="How can this blog be better?"
                         required
                     />
