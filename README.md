@@ -2,14 +2,14 @@
 This is a starter template for [Learn Next.js](https://nextjs.org/learn-pages-router/basics/create-nextjs-app) with some additional features added.
 
 ## Features
+- Client-side Rendering on Profile page using SWR for data fetching from the GitHub API
 - Examples of both pre-rendering methods in Next.js: Static Generation and Server-side Rendering
 - Data Fetching via getStaticProps (Static Generation with data at build-time) and getServerSideProps (SSR at request-time)
-- Theme Switcher via useContext (Light & Dark mode)
-- Profile page that fetches user info from the GitHub API
+- Theme Switcher using useContext hook for passing theme through the component tree (Light & Dark mode)
 - Basic text search and tag filtering for blog posts
 - Blog posts written in Markdown in the `posts` folder
 - Dynamic Routes
-- API Routes
+- API Route example
 - Basic metadata populated for SEO
 
 ## Local Setup
